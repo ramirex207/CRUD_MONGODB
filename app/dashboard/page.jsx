@@ -2,21 +2,32 @@ import UsersView from "@/components/user/UsersView";
 import axios from "axios";
 const apiUrl = process.env.API_URL;
 
-async function getUsers(){
-    const res = await axios.get(`${apiUrl}/api/user`)
-    const users = res.data.Users
-    //console.log(res.data)
-    return users
-  }
+const getUsers = async () => {
+    const apiUrl = process.env.API_URL;
+    try {
+      const res = await fetch(`${apiUrl}/api/user`, {
+        cache: "no-store",
+      });
+  
+      if (!res.ok) {
+        throw new Error("Failed to fetch users");
+      }
+  
+      return res.json();
+    } catch (error) {
+      console.log("Error loading users: ", error);
+    }
+  };
+  
 
 async function DashboardPage() {
-    const users= await getUsers();
-    console.log(apiUrl)
-  return (
-    <div>DashboardPage
-    <UsersView users={users}/>
-    </div>
-  )
+    const {Users} = await getUsers();
+    console.log(Users)
+    return (
+        <div>DashboardPage
+            <UsersView users={Users}/>
+        </div>
+    )
 }
 
 export default DashboardPage
