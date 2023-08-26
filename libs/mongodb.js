@@ -16,7 +16,6 @@ const connectMongoDB = async () => {
   try {
     if(mongoClient){
       return console.log("MongoDB already connected.");
-      
     }
     mongoClient = await mongoose.connect(uri, options);
     console.log("Connected to MongoDB.");
