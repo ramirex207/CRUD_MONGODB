@@ -15,7 +15,8 @@ async function HomePage() {
   const users  = await getUsers();
   //console.log(users)
   return (
-  <UsersView users={users}/>
+    <h1>hola mundo</h1>
+  //<UsersView users={users}/>
   )
 }
 
