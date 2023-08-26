@@ -1,6 +1,6 @@
 import UsersView from "@/components/user/UsersView";
-import axios from "axios";
-const apiUrl = process.env.API_URL;
+
+
 
 const getUsers = async () => {
     const apiUrl = process.env.API_URL;
