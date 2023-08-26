@@ -1,14 +1,20 @@
-"use client"
+import UsersView from "@/components/user/UsersView";
+import axios from "axios";
+const apiUrl = process.env.API_URL;
 
-import {useSession} from 'next-auth/react'
+async function getUsers(){
+    const res = await axios.get(`${apiUrl}/api/user`)
+    const users = res.data.Users
+    //console.log(res.data)
+    return users
+  }
 
-function DashboardPage() {
-    const {data:session,status} = useSession()
-    console.log(session)
-    const userSession = session?.user.role
-    console.log(userSession)
+async function DashboardPage() {
+    const users= await getUsers();
+    console.log(apiUrl)
   return (
     <div>DashboardPage
+    <UsersView users={users}/>
     </div>
   )
 }
