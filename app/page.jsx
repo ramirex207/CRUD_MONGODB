@@ -12,7 +12,7 @@
   }
 
 async function HomePage() {
-  const users  = await getUsers();
+  //const users  = await getUsers();
   //console.log(users)
   return (
     <h1>hola mundo</h1>
