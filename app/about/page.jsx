@@ -1,17 +1,14 @@
-import Logo from '@/components/Logo'
-import React from 'react';
+
 
 function AboutPage() {
   return (
-    <div className="p-8 text-slate-800">
-      <div className="max-w-7xl mx-auto">
+    <div className=" text-slate-900 mt-24">
+      <div className="mx-auto">
 
         {/* Fila 1 */}
         <div className="grid grid-cols-1 items-center">
           <div className="col-span-1 text-center">
-            <div className="flex justify-center scale-150">
-              <Logo />
-            </div>
+            
             <h1 className="text-4xl font-bold pb-2 mb-4 text-black border-black border-b-2 max-w-xs mx-auto">Nuestros Servicios</h1>
           </div>
         </div>

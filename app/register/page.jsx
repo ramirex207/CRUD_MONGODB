@@ -4,19 +4,31 @@ import axios from 'axios'
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation'
 
+
 function RegisterPage() {
   const router = useRouter()
   const [datos,setDatos] = useState({
     name:'',
     email:'',
-    password:''
+    password:'',
+    role:'',
+    employeeCode:''
   })
-  const [errorMessage,setErrorMessage] = useState("")
-  const [serverMessage,setServerMessage] = useState("")
+  const [errorMessage,setErrorMessage] = useState("");
+  const [serverMessage,setServerMessage] = useState("");
+  const [showEmployeeCode,setShowEmployeeCode] = useState(false);
   const handleInputChange = (event) => {
     const {name,value} = event.target
     setDatos({...datos,[name]:value})
   };
+
+  const handleSelectChange = (event) => {
+    const {name,value} = event.target
+    setDatos({...datos,[name]:value})
+    setShowEmployeeCode(value === 'admin')
+  };
+
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
@@ -34,7 +46,7 @@ function RegisterPage() {
         return
       }
 
-      console.log(res)
+      //console.log(res)
       router.push('/dashboard/profile')
       
  
@@ -81,6 +93,23 @@ function RegisterPage() {
         onChange={handleInputChange}
         className='bg-gray-200 border-2 border-gray-200 rounded-sm p-2 mb-4 w-full'
         />
+        <select name="role" id="role"
+        value={datos.role}
+        onChange={handleSelectChange}
+        className='bg-gray-200 border-2 border-gray-200 rounded-sm p-2 mb-4 w-full'
+        >
+          <option value="user">Usuario</option>
+          <option value="admin">Administrador</option>
+        </select>
+        {showEmployeeCode && ( // Mostrar el campo de código de empleado solo si el rol es "admin"
+        <input
+          type="text"
+          placeholder="employee code"
+          name="employeeCode"
+          onChange={handleInputChange}
+          className="my-1 rounded-md bg-zinc-700 px-2 py-1 placeholder:italic"
+        />
+        )}
         <button
         className='bg-sky-600 hover:bg-sky-300 text-white px-4 py-3 rounded-sm w-full'
         >Registrar</button>

@@ -1,5 +1,6 @@
 "use client"
 
+import Logo from './Logo'
 import Navigation from './Navigation'
 import { useState } from 'react'
 
@@ -10,10 +11,11 @@ function Nav() {
     };
     return (
         <header>
-            <nav className='fixed top-0 left-0 w-full flex bg-black text-white justify-between items-center bg-opacity-40' >
+            <nav className='fixed top-0 left-0 w-full flex bg-oliva-50 text-oliva-900 justify-between items-center bg-opacity-40' >
                 <div className='flex items-center justify-center'>
-                    <h1 className="text-4xl font-bold animate-color-change">Nefro</h1>
-                    <h1 className="text-4xl font-bold animate-color-change2">Centro</h1>
+                    <Logo className='animate-color-change'/>
+                    <h1 className="text-4xl font-bold animate-color-change">NefroCentro</h1>
+                    
                 </div>
                 <div className='hidden lg:block lg:h-20'>
                     <Navigation />
@@ -26,7 +28,6 @@ function Nav() {
             </nav>
 
             <div className='lg:hidden mt-20'>
-
                 {menuVisible && (
                     <div className='fixed w-full'>
                     <Navigation onClick={toggleMenu} />
@@ -34,7 +35,6 @@ function Nav() {
                     </div>
                     
                 )}
-
             </div>
 
 

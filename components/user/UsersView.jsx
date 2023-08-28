@@ -2,8 +2,6 @@
 "use client"
 
 
-import React from 'react';
-
 export default function UsersView({ users }) {
   //console.log(users);
 

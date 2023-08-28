@@ -22,7 +22,6 @@ const getUsers = async () => {
 
 async function DashboardPage() {
     const {Users} = await getUsers();
-    console.log(Users)
     return (
         <div>DashboardPage
             <UsersView users={Users}/>

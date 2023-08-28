@@ -46,6 +46,15 @@ const userSchema = new Schema({
     minlength: 6,
     required: [true, "Password es requerido"],
   },
+  role: {
+    type: String,
+    default: "user",
+    
+  },
+  employeeCode: {
+    type: String,
+    default:"user"
+  },
 
   patient: patientDataSchema,
   createdAt: {

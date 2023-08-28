@@ -3,43 +3,39 @@ import User from '@/models/user'
 import connectMongoDB from "@/libs/mongodb";
 import bcrypt from "bcrypt";
 
+const REQUIRED_EMPLOYEE_CODE = '8344193';
+
 export async function POST(request) {
     try {
         //pide los datos que se registran en el formulario
-        const { name, email, password } = await request.json();
+        const { name, email, password,role,employeeCode } = await request.json();
         //validacion de campos vacios
         if (!name || !email || !password) {
             return NextResponse.json({ message: "Todos los campos son requeridos" }, { status: 400 });
         }
         // Validación de longitud de nombre
         if (name.length < 3 || name.length > 50) {
-            return NextResponse.json({
-            message: "El nombre debe tener al menos 3 caracteres y un maximo de 50",            status: 400
-            });
+            return NextResponse.json({ message: "el nombre debe contener al menos 3 caracteres" }, { status: 400 });
         }
          // Validación de formato de email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            return NextResponse.json({
-            message: "El email ingresado no es válido",
-            status: 400
-            });
+            return NextResponse.json({ message: "el email ingresado no es valido" }, { status: 400 });
         }
          // Validación de longitud mínima del password (6 caracteres)
         // y presencia de al menos una letra y una mayúscula
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (!passwordRegex.test(password)) {
-            return NextResponse.json({
-            message:
-                "El password debe tener al menos 6 caracteres y contener al menos una letra y una mayúscula",
-            status: 400
-            });
+            return NextResponse.json({ message: "la contraseña debe contener al menos 6 caracteres y una mayuscula" }, { status: 400 });
+        }
+        if(role === 'admin' && employeeCode !== REQUIRED_EMPLOYEE_CODE){
+            return NextResponse.json({ message: "el codigo de empleado es incorrecto" }, { status: 400 });
         }
         //console.log({name,email,password})
         //conecta a la base de datos
         await connectMongoDB();
         //crea un nuevo usuario con los datos del formulario y le agrega un cifrado al passaword    
-        const user =  new User({ name, email, password: bcrypt.hashSync(password, 12)});
+        const user =  new User({ name, email, password: bcrypt.hashSync(password, 12),role,employeeCode});
         //busca si el usuario ya existe
         const userfound = await User.findOne({ email: email });
         //si el usuario ya existe, retorna un mensaje de error
