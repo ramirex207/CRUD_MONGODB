@@ -1,32 +1,16 @@
-import UsersView from "@/components/user/UsersView";
+"use client"
 
+import {useSession} from 'next-auth/react'
 
-
-const getUsers = async () => {
-    const apiUrl = process.env.API_URL;
-    try {
-      const res = await fetch(`${apiUrl}/api/user`, {
-        cache: "no-store",
-      });
-  
-      if (!res.ok) {
-        throw new Error("Failed to fetch users");
-      }
-  
-      return res.json();
-    } catch (error) {
-      console.log("Error loading users: ", error);
-    }
-  };
-  
-
-async function DashboardPage() {
-    const {Users} = await getUsers();
-    return (
-        <div>DashboardPage
-            <UsersView users={Users}/>
-        </div>
-    )
+function DashboardPage() {
+    const {data:session,status} = useSession()
+   // console.log(session)
+    //const userSession = session?.user.role
+    //console.log(userSession)
+  return (
+    <div>DashboardPage
+    </div>
+  )
 }
 
 export default DashboardPage

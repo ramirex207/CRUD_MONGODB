@@ -1,4 +1,5 @@
-
+import Logo from '@components/Logo'
+import React from 'react';
 
 function AboutPage() {
   return (

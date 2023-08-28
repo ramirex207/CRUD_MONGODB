@@ -11,7 +11,7 @@ function RegisterPage() {
     name:'',
     email:'',
     password:'',
-    role:'',
+    role:'user',
     employeeCode:''
   })
   const [errorMessage,setErrorMessage] = useState("");

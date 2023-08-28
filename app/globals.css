@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+img{
+  width: auto;
+  height: auto;
+}
+body{
+  background: rgb(78,173,187);
+  background: linear-gradient(18deg, rgba(78,173,187,1) 11%, rgba(179,209,255,1) 53%, rgba(35,133,147,1) 92%);
+}
+@keyframes color-change {
+  0% {
+    color: #EEEEEE /* Color inicial */
+  }
+  50% {
+    color: #00ADB5; /* Color intermedio */
+  }
+  100% {
+    color: #222831; /* Color final */
+  }
+}
+@keyframes color-change2 {
+  0% {
+    color: #222831; /* Color inicial */
+  }
+  50% {
+    color: #EEEEEE; /* Color intermedio */
+  }
+  100% {
+    color: #00ADB5; /* Color final */
+  }
+}
+
+.animate-color-change {
+  animation: color-change 9s linear infinite;
+}
+.animate-color-change2 {
+  animation: color-change2 9s linear infinite;
+}

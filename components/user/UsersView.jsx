@@ -18,6 +18,9 @@ export default function UsersView({ users }) {
               Email
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Rol
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Actions
             </th>
           </tr>
@@ -30,6 +33,9 @@ export default function UsersView({ users }) {
               </td>
               <td className="px-6 py-3 whitespace-nowrap">
                 <p className="text-sm text-gray-500">{user.email}</p>
+              </td>
+              <td className="px-6 py-3 whitespace-nowrap">
+                <p className="text-sm text-gray-500">{user.role}</p>
               </td>
               <td className="px-6 py-3 whitespace-nowrap">
                 <button className="text-indigo-600 hover:text-indigo-900">Edit</button>

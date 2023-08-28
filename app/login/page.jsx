@@ -28,7 +28,7 @@ function LoginPage() {
       //console.log(res)
       if((await res).error === null){
           console.log("ok")
-          return Router.push("/dashboard")
+          return Router.push("/dashboard/profile")
       }
       else{
           setError(res.error)
