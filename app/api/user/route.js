@@ -5,11 +5,11 @@ import connectMongoDB from "@/libs/mongodb";
 export async function POST(request) {
     try {
         //pide los datos que se registran en el formulario
-        const { name,email,password, patient } = await request.json();
+        const { name,email,password, patient, role } = await request.json();
         //conecta a la base de datos
         await connectMongoDB();
         //crea un nuevo usuario con los datos del formulario    
-        const user =  new User({ name,email,password, patient });
+        const user =  new User({ name,email,password,role,patient });
         //busca si el usuario ya existe
         const userfound = await User.findOne({ email: email });
         //si el usuario ya existe, retorna un mensaje de error

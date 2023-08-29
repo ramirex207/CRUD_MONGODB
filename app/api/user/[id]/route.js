@@ -5,13 +5,12 @@ import connectMongoDB from "@/libs/mongodb";
 export async function PUT(request, { params }) {
     try {
         const { id } = params;
-        const {name,email,password} = await request.json();
+        const {name,email,password,patient} = await request.json();
         
         await connectMongoDB();
-        const userfound = await User.findByIdAndUpdate(id, { name,email,password });
+        const userfound = await User.findByIdAndUpdate(id, { name,email,password,patient });
         
         return NextResponse.json({ message: "user updated" }, { status: 200 });    
-         
     } catch (error) {
         return NextResponse.error(error);
     }
