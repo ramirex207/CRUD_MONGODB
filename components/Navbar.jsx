@@ -31,7 +31,6 @@ function Nav() {
                 {menuVisible && (
                     <div className='fixed w-full'>
                     <Navigation onClick={toggleMenu} />
-
                     </div>
                     
                 )}

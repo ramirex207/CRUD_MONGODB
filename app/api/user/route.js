@@ -6,6 +6,25 @@ export async function POST(request) {
     try {
         //pide los datos que se registran en el formulario
         const { name,email,password, patient, role } = await request.json();
+          //validacion de campos vacios
+          if (!name || !email || !password || !patient || !role) {
+            return NextResponse.json({ message: "Todos los campos son requeridos" }, { status: 400 });
+        }
+        // Validación de longitud de nombre
+        if (name.length < 3 || name.length > 50) {
+            return NextResponse.json({ message: "el nombre debe contener al menos 3 caracteres" }, { status: 400 });
+        }
+         // Validación de formato de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return NextResponse.json({ message: "el email ingresado no es valido" }, { status: 400 });
+        }
+         // Validación de longitud mínima del password (6 caracteres)
+        // y presencia de al menos una letra y una mayúscula
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        if (!passwordRegex.test(password)) {
+            return NextResponse.json({ message: "la contraseña debe contener al menos 6 caracteres y una mayuscula" }, { status: 400 });
+        }
         //conecta a la base de datos
         await connectMongoDB();
         //crea un nuevo usuario con los datos del formulario    

@@ -18,8 +18,19 @@ export async function PUT(request, { params }) {
 
 
 export async function GET(request, { params }) {
+    try {
+
     const { id } = params;
     await connectMongoDB();
+    const evalId = id.includes('@');
+    if (evalId) {
+        let query = { email: id };
+        const user = await User.findOne(query);
+        return NextResponse.json({ user }, { status: 200 });
+    }
     const user = await User.findOne({ _id: id });
     return NextResponse.json({ user }, { status: 200 });
+    } catch (error) {
+        console.log(error)
+    }
 }

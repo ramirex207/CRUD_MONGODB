@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from 'next/link';
 
-import { FaHospitalUser, FaUserMd, FaUserInjured,FaUserNurse,FaCalendarAlt, FaChartBar, FaCommentMedical,FaClinicMedical, FaClipboardList } from 'react-icons/fa'
+import { FaHospitalUser, FaUserMd, FaUserInjured,FaCalendarAlt, FaChartBar, FaCommentMedical,FaClinicMedical, FaClipboardList, FaUser } from 'react-icons/fa'
 
 
 
@@ -59,7 +59,7 @@ function Aside() {
             </Link>
             <Link href='/dashboard-Admin/patients' className="hover:text-slate-200 " onClick={hideMenuOnClick}>
               <li className="m-4 my-8 pr-2 border-r-2 flex items-center">
-                <FaUserNurse className="mr-2" />
+                <FaUserInjured className="mr-2" />
                 <h4 className="transition duration-300 ease-in-out transform hover:translate-x-3">
                   Administrar Pacientes
                 </h4>
@@ -67,7 +67,7 @@ function Aside() {
             </Link>
             <Link href='/dashboard-Admin/users' className="hover:text-slate-200" onClick={hideMenuOnClick}>
               <li className="m-4 pr-2 my-8 border-r-2 flex items-center">
-                <FaUserInjured className="mr-2" />
+                <FaUser className="mr-2" />
                 <h4 className="transition duration-300 ease-in-out transform hover:translate-x-3">
                   Administrar Usuarios
                 </h4>

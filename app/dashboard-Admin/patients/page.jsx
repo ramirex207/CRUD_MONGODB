@@ -11,7 +11,7 @@ const getUsers = async () => {
       }
       const patients = await res.json();
       //console.log(patients)
-      const filteredPatients = patients.Users.filter((patient) => patient.role === 'admin')
+      const filteredPatients = patients.Users.filter((patient) => patient.role === 'patient')
       //console.log(filteredPatients)
       return filteredPatients;
       } catch (error) {
