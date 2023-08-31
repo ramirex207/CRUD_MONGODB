@@ -1,4 +1,5 @@
-import Doctors from "@components/dashboard-Admin/Doctors";
+
+import PatientView from "@components/dashboard-Admin/PatientView";
 import ButtonAgregar from "@components/patient/ButtonAgregar"
 const getUsers = async () => {
   const apiUrl = process.env.API_URL;
@@ -26,7 +27,7 @@ async function PatientsPage() {
   return (
     <div>
         <ButtonAgregar/>
-        <Doctors users={patients}/>
+        <PatientView users={patients}/>
     </div>
   )
 }

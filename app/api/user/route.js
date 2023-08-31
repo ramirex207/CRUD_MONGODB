@@ -7,7 +7,7 @@ export async function POST(request) {
         //pide los datos que se registran en el formulario
         const { name,email,password, patient, role } = await request.json();
           //validacion de campos vacios
-          if (!name || !email || !password || !patient || !role) {
+          if (!name || !email || !password) {
             return NextResponse.json({ message: "Todos los campos son requeridos" }, { status: 400 });
         }
         // Validación de longitud de nombre
