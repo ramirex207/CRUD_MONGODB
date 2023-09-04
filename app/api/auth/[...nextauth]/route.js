@@ -16,7 +16,7 @@ const handler = NextAuth({
             async authorize(credentials,req) {
                 await connectMongoDB();
                 const userFound = await User.findOne({ email: credentials?.email });
-                if(!userFound) throw new Error("User not found");
+                if(!userFound) throw new Error("Usuario no encontrado");
                 const isMatch = await bcrypt.compare(credentials.password,userFound.password);
                 //console.log(isMatch)
                 if(!isMatch) throw new Error("Password incorrect");

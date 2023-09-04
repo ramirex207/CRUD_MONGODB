@@ -1,7 +1,7 @@
 
 function Footer(){
   return (
-    <footer className="bg-cyan-950 text-white py-4">
+    <footer className="bg-cyan-700 text-white py-4 block">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <div>
@@ -23,9 +23,6 @@ function Footer(){
                   </svg>
                 </div>
             </div>
-
-
-            
           </div>
           <div className="flex justify-center items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">

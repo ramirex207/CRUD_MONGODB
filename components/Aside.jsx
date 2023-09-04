@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from 'next/link';
 
-import { FaHospitalUser, FaUserMd, FaUserInjured,FaCalendarAlt, FaChartBar, FaCommentMedical,FaClinicMedical, FaClipboardList, FaUser } from 'react-icons/fa'
+import { FaHospitalUser, FaUserMd, FaUserInjured, FaCalendarAlt, FaChartBar, FaCommentMedical, FaClinicMedical, FaClipboardList, FaUser } from 'react-icons/fa'
 
 
 
@@ -41,13 +41,13 @@ function Aside() {
   };
 
   return (
-    <div className="text-slate-800 text-xl lg:fixed">
+    <div className="text-slate-400 text-xl lg:fixed lg:max-h-96">
       <div className="lg:flex">
         <button onClick={toggleMenu} className="block lg:hidden">
           Panel de Administrador
         </button>
         {menuVisible && (
-          <ul className=" lg:min-h-[100vh] lg:block">
+          <ul className="lg:min-h-screen lg:block">
             <Link href='/dashboard-Admin/doctors' className="hover:text-slate-100" onClick={hideMenuOnClick}>
 
               <li className="m-4 pr-2 my-8 border-r-2 flex items-center">

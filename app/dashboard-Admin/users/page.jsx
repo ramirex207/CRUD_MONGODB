@@ -22,7 +22,7 @@ async function UsersPage() {
     const Users = await getUsers();
     //console.log(Users)
     return (
-        <div>DoctorsPage
+        <div>
             <Doctors users={Users}/>
         </div>
 

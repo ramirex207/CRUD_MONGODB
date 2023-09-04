@@ -26,7 +26,7 @@ async function DashboardPage() {
    // console.log(Users)
     return (
         <div>
-          <DigitalClock/>
+          
           <h1 className="text-center text-2xl py-2">LISTA DE USUARIOS</h1>
           <UsersView users={Users}/>
         </div>

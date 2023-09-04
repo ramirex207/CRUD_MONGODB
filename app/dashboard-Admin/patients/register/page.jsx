@@ -2,7 +2,7 @@ import PatientForm from '@components/patient/PatientForm'
 
 function RegisterPatientPage() {
   return (
-    <div>
+    <div className=''>
         <PatientForm/>
     </div>
   )

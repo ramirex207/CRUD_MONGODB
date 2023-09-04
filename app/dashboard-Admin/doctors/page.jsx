@@ -1,4 +1,6 @@
 import Doctors from "@components/dashboard-Admin/Doctors";
+import BtnAddDoctor from "@components/doctors/BtnAddDoctor";
+
 
 const getUsers = async () => {
     const apiUrl = process.env.API_URL;
@@ -20,9 +22,10 @@ const getUsers = async () => {
     };
 async function DoctorsPage() {
     const Users = await getUsers();
-    console.log(Users)
+    //console.log(Users)
     return (
-        <div>DoctorsPage
+        <div>
+            <BtnAddDoctor/>
             <Doctors users={Users}/>
         </div>
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-function PatientForm() {
+function DoctorForm() {
     const router = useRouter();
     const [errorMessage,setErrorMessage] = useState(null);
     const [serverMessage,setServerMessage] = useState(null);// Estado para capturar la respuesta del servidor
@@ -117,9 +117,12 @@ function PatientForm() {
                 </div>
             }
             <form 
-            className="w-full lg:max-w-none bg-white rounded-sm shadow-lg p-10 lg:text-2xl"
+            className="w-full lg:max-w-none bg-white rounded-sm shadow-lg p-10 lg:text-xl"
             onSubmit={handleSubmit}>
-                <h2 className="text-2xl font-bold mb-6 text-center">AÑADIR PACIENTE</h2>
+                <div className="flex justify-center items-center p-2 mb-4">
+                    <h2 className="text-2xl font-bold border-b-2 border-slate-800 max-w-md text-slate-800">AÑADIR DOCTOR</h2>
+                </div>
+                
                 <div className="mb-2 lg:grid lg:grid-cols-2">
                     <label className="block text-gray-800 font-semibold mb-2 lg:pr-10">
                     Nombres del paciente:
@@ -239,4 +242,4 @@ function PatientForm() {
         </div>
     );
 };
-export default PatientForm;
+export default DoctorForm;

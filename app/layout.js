@@ -22,17 +22,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className='min-h-screen flex flex-col'>
-        <Providers>
-          <nav>
-            <Navbar />
-          </nav>
-          <main className={"flex-1 " + oswald.className}>{children}</main>
-          <div>
-            <Footer />
-          </div>
-        </Providers>
-      </body>
-    </html>
+    <body className='min-h-screen flex flex-col'>
+      <Providers>
+        <nav>
+          <Navbar />
+        </nav>
+        <main className={"flex-1 " + oswald.className}>{children}</main>
+        <div className=''>
+          <Footer />
+        </div>
+      </Providers>
+    </body>
+  </html>
   );
 }

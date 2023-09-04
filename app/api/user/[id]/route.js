@@ -5,15 +5,15 @@ import connectMongoDB from "@/libs/mongodb";
 export async function PUT(request, { params }) {
     try {
         const { id } = params;
-        const {name,email,password,patient} = await request.json();
+        const {name,email,password,patient,role} = await request.json();
         if (!name || !email || !password || !patient) {
             return NextResponse.json({ message: "Todos los campos son requeridos" }, { status: 400 });
         }
 
         await connectMongoDB();
-        const userfound = await User.findByIdAndUpdate(id, { name,email,password,patient });
+        const userfound = await User.findByIdAndUpdate(id, { name,email,password,patient,role });
         
-        return NextResponse.json({ message: "user updated" }, { status: 200 });    
+        return NextResponse.json({ message: "usuario actualizado" }, { status: 200 });    
     } catch (error) {
         return NextResponse.error(error);
     }

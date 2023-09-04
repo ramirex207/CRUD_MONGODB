@@ -16,8 +16,7 @@ async function PatientPage({params}) {
   //console.log(patient)
 
   return (
-    <div>PatientPage
-
+    <div>
     <PatientFormView patient={patient.user}/>
     </div>
   )

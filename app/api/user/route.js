@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"; 
 import User from '@/models/user'
 import connectMongoDB from "@/libs/mongodb";
+import bcrypt from "bcrypt";
 
 export async function POST(request) {
     try {
@@ -28,8 +29,10 @@ export async function POST(request) {
         //conecta a la base de datos
         await connectMongoDB();
         //crea un nuevo usuario con los datos del formulario    
-        const user =  new User({ name,email,password,role,patient });
+        console.log(password)
+        const user =  new User({ name,email,password: bcrypt.hashSync(password, 12),role,patient });
         //busca si el usuario ya existe
+        console.log(user)
         const userfound = await User.findOne({ email: email });
         //si el usuario ya existe, retorna un mensaje de error
         if (userfound) {

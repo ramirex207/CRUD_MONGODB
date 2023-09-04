@@ -1,50 +1,64 @@
-"use client"
+"use client";
 
-function PatientFormView({ patient }) {
-    return (
-      <div className="bg-white p-4 rounded-lg shadow-xl">
-        <h2 className="text-2xl text-center text-gray-800 font-bold mb-4">Detalles del Paciente</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="col-span-2 md:col-span-1">
-            <p className="font-semibold">Nombre Completo:</p>
-            <p>{patient.name} {patient.patientLastName}</p>
-          </div>
-          <div className="col-span-2 md:col-span-1">
-            <p className="font-semibold">Cédula:</p>
-            <p>{patient.patient.patientCi}</p>
-          </div>
-          <div className="col-span-2 md:col-span-1">
-            <p className="font-semibold">Edad:</p>
-            <p>{patient.patient.patientAge}</p>
-          </div>
-          <div className="col-span-2 md:col-span-1">
-            <p className="font-semibold">Género:</p>
-            <p>{patient.patient.patientGender}</p>
-          </div>
-          <div className="col-span-2">
-            <p className="font-semibold">Dirección:</p>
-            <p>{patient.patient.patientAddress}</p>
-          </div>
-          <div className="col-span-2">
-            <p className="font-semibold">Teléfono:</p>
-            <p>{patient.patient.patientPhone}</p>
-          </div>
-          <div className="col-span-2">
-            <p className="font-semibold">Correo Electrónico:</p>
-            <p>{patient.patient.patientEmail}</p>
-          </div>
-          <div className="col-span-2">
-            <p className="font-semibold">Fecha de Creación:</p>
-            <p>{new Date(patient.createdAt).toLocaleDateString()}</p>
-          </div>
-          <div className="col-span-2">
-            <p className="font-semibold">Rol:</p>
-            <p>{patient.role}</p>
-          </div>
-        </div>
+import { useRouter } from "next/navigation";
+
+function PatientFormView({patient}) {
+    //console.log(patient.user)
+    const router = useRouter();
+  return (
+    <div>
+        <div className="flex justify-between mb-4"> {/* Aquí se coloca el componente en la esquina derecha */}
+        <h1 className="text-2xl font-bold">Información del paciente</h1>
       </div>
-    );
-  }
-  
-  export default PatientFormView;
-  
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="border-b md:border-b-0 md:border-r border-slate-400 pb-6 md:pb-0 md:pr-6">
+        <h3 className="text-lg font-bold mb-2">Nombre:</h3>
+        <p className="text-slate-800">{patient.name}</p>
+      </div>
+      <div className="border-b md:border-b-0 border-slate-400 pb-6 md:pb-0 md:pr-6">
+        <h3 className="text-lg font-bold mb-2">Edad:</h3>
+        <p className="text-slate-800">{patient.patient.patientAge}</p>
+      </div>
+      <div className="border-b md:border-b-0 md:border-r border-slate-400 pb-6 md:pb-0 md:pr-6">
+        <h3 className="text-lg font-bold mb-2">Género:</h3>
+        <p className="text-slate-800">{patient.patient.patientGender}</p>
+      </div>
+      <div className="border-b md:border-b-0 border-slate-400 pb-6 md:pb-0 md:pr-6">
+        <h3 className="text-lg font-bold mb-2">Dirección:</h3>
+        <p className="text-slate-800">{patient.patient.patientAddress}</p>
+      </div>
+      <div className="border-b md:border-b-0 pb-6 md:pb-0">
+        <h3 className="text-lg font-bold mb-2">Número de Contacto:</h3>
+        <p className="text-slate-800">{patient.patient.patientPhone}</p>
+      </div>
+      <div className="border-b md:border-b-0 pb-6 md:pb-0">
+        <h3 className="text-lg font-bold mb-2">Cedula de Identidad:</h3>
+        <p className="text-slate-800">{patient.patient.patientCi}</p>
+      </div>
+    </div>
+    <div className="grid grid-cols-2 gap-4 mt-6">
+      {/* Agregar historia clínica */}
+      <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
+      onClick={() => {
+        
+        router.push(`/dashboard-Admin/patients/${patient._id}/historiaClinica`);
+      }}
+      >
+        Ver Historia Clínica
+      </button>
+
+      {/* Agendar cita */}
+      <button className="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-500"
+      onClick={() => {
+        router.push(`/dashboard-Admin/patients/${patient._id}/editar`);
+      }}
+      
+      >
+        Editar Usuario
+      </button>
+    </div>
+    </div>
+  )
+}
+
+export default PatientFormView
