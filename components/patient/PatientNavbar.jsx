@@ -11,7 +11,7 @@ function PatientNavbar({ id, nombrePaciente }) {
   };
 
   return (
-    <nav className="bg-blue-500 py-2 px-4 md:px-8">
+    <nav className="bg-sky-600 py-2 px-4 md:px-8">
       <div className="">
         <div className="flex justify-between items-center">
           <Link href={`/dashboard-Admin/patients/${id}`}>

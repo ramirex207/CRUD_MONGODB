@@ -16,8 +16,8 @@ async function PatientPage({params}) {
   //console.log(patient)
 
   return (
-    <div>
-    <PatientFormView patient={patient.user}/>
+    <div className="bg-slate-300 p-2">
+      <PatientFormView patient={patient.user}/>
     </div>
   )
 }

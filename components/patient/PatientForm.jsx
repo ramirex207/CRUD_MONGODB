@@ -117,7 +117,7 @@ function PatientForm() {
                 </div>
             }
             <form 
-            className="w-full lg:max-w-none bg-white rounded-sm shadow-lg p-10 lg:text-2xl"
+            className="w-full lg:max-w-none bg-white rounded-sm shadow-lg p-10 lg:text-xl"
             onSubmit={handleSubmit}>
                 <h2 className="text-2xl font-bold mb-6 text-center">AÑADIR PACIENTE</h2>
                 <div className="mb-2 lg:grid lg:grid-cols-2">

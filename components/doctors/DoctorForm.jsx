@@ -125,7 +125,7 @@ function DoctorForm() {
                 
                 <div className="mb-2 lg:grid lg:grid-cols-2">
                     <label className="block text-gray-800 font-semibold mb-2 lg:pr-10">
-                    Nombres del paciente:
+                    Nombres:
                     </label>
                     <input
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-cyan-200"
@@ -138,7 +138,7 @@ function DoctorForm() {
                 </div>
                 <div className="mb-2 lg:grid lg:grid-cols-2">
                     <label className="block text-gray-800 font-semibold mb-2">
-                    Apellidos del paciente:
+                    Apellidos:
                     </label>
                     <input
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-cyan-200"

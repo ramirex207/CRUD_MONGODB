@@ -27,21 +27,20 @@ function DoctorView({doctor}) {
         {/* Agregar historia clínica */}
         <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
         onClick={() => {
-          
-          router.push(`/dashboard-Admin/patients/historiaClinica`);
+          router.push(`/dashboard-Admin/patients`);
         }}
         >
-          Ver Historia Clínica
+          Eliminar
         </button>
 
         {/* Agendar cita */}
         <button className="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-500"
         onClick={() => {
-          router.push(`/dashboard-Admin/patients/${patient._id}/editar`);
+          router.push(`/dashboard-Admin`);
         }}
         
         >
-          Editar Usuario
+          Editar
         </button>
     </div>
   </div>
