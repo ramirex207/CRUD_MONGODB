@@ -2,14 +2,21 @@
 import { useState } from 'react';
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import {GrMail} from 'react-icons/gr'
+import Image from 'next/image';
+import {AiFillEye,AiFillEyeInvisible} from 'react-icons/ai'
 
 function LoginPage() {
+  const [passwordVisible,setPasswordVisible] = useState(false) // Estado para mostrar u ocultar la contraseña
   const [error, setError] = useState(null);
   const [datos, setDatos] = useState({
     name: '',
     email: '',
     password: '',
   });
+  const handlePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible)
+  }
   const Router = useRouter();
 
   const handleInputChange = (event) => {
@@ -28,7 +35,7 @@ function LoginPage() {
       //console.log(res)
       if((await res).error === null){
           console.log("ok")
-          return Router.push("/dashboard/profile")
+          return Router.push("/dashboard-Admin")
       }
       else{
           setError(res.error)
@@ -44,33 +51,51 @@ function LoginPage() {
 
   return (
     <div className="justify-center h-[calc(100vh-4rem)] flex items-center">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-zinc-800 w-96 px-4 py-10 rounded-lg flex flex-col items-center text-slate-100 shadow-xl shadow-gray-950"
-      >
-        <h1 className='pb-3'>Iniciar Sesión</h1>
+      <div className='lg:flex rounded-md shadow-2xl bg-teal-500 bg-opacity-20'>
+        <div className='bg-slate-100 p-2 flex justify-center items-center text-teal-50 shadow-2xl bg-opacity-10'>
+        <Image src='/logoNefro1.png' alt="logo" width={200} height={200} 
+        priority/>
+        </div>
+        <form
+          onSubmit={handleSubmit}
+          className=' p-4 max-w-md mx-auto lg:max-w-none my-4 h-96 flex flex-col justify-center'
+        >
+          
 
-        {error && <div className="bg-red-500 p-2 mb-2">{error}</div>}
-        
+          {error && <div className="bg-red-500 p-2 mb-2 uppercase text-slate-800 text-center rounded-md">{error}</div>}
+          
+          <div className='flex bg-teal-100 items-center h-10 mb-4 px-4 rounded-full'>
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              name="email"
+              onChange={handleInputChange}
+              className='w-full bg-transparent flex outline-none items-center '
+            />
+            <GrMail className='text-teal-500 text-xl'/>
+          </div>
+          <div className='flex bg-teal-100 items-center h-10 mb-4 px-4 rounded-full'>
+          <input
+            type={passwordVisible ? "text" : "password"}
+            placeholder="Contraseña"
+            name="password"
+            onChange={handleInputChange}
+            className='w-full bg-transparent flex outline-none items-center '
+          />
+               {passwordVisible ? (
+            <AiFillEye className='text-teal-700 text-2xl cursor-pointer' onClick={handlePasswordVisibility}/>
+          ) : (
+            <AiFillEyeInvisible className='text-teal-700 text-2xl cursor-pointer' onClick={handlePasswordVisibility}/>
+          )}
+          </div>
 
-        <input
-          type="email"
-          placeholder="Correo"
-          name="email"
-          onChange={handleInputChange}
-          className="my-1 rounded-md bg-zinc-700 px-2 py-1 placeholder:italic"
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          name="password"
-          onChange={handleInputChange}
-          className="my-2 rounded-md bg-zinc-700 px-2 py-1 placeholder:italic"
-        />
-        <button
-        className='bg-zinc-600 px-4 py-2 rounded-lg mt-4 hover:bg-zinc-400 hover:text-zinc-900 hover:transition-transform hover:scale-110'
-        >Ingresar</button>
-      </form>
+          <button
+          className='bg-teal-950 hover:bg-teal-300 text-white px-4 py-3 my-2 rounded-sm w-full uppercase font-semibold tracking-wider'
+          >Ingresar</button>
+        </form>
+
+      </div>
+      
     </div>
   );
 }

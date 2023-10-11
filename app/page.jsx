@@ -1,5 +1,4 @@
-import axios from "axios";
-import UsersView from "@/components/user/UsersView";
+
 
 
 async function HomePage() {
@@ -7,8 +6,11 @@ async function HomePage() {
   //const users  = await getUsers();
   //console.log(users)
   return (
-    <h1>hola mundo</h1>
-  //<UsersView users={users}/>
+    <div className="flex justify-center items-center lg:mt-20">
+      <h1>bienvenido a Nefrocentro</h1>
+    </div>
+
+    //<UsersView users={users}/>
   )
 }
 

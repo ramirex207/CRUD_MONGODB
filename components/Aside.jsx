@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from 'next/link';
 
-import { FaHospitalUser, FaUserMd, FaUserInjured, FaCalendarAlt, FaChartBar, FaCommentMedical, FaClinicMedical, FaClipboardList, FaUser } from 'react-icons/fa'
+import { FaHospitalUser, FaUserMd, FaUserInjured, FaCalendarAlt, FaChartBar, FaCommentMedical, FaClinicMedical, FaClipboardList, FaUser, FaBriefcaseMedical} from 'react-icons/fa'
 
 
 

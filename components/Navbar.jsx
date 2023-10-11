@@ -3,6 +3,7 @@
 import Logo from './Logo'
 import Navigation from './Navigation'
 import { useState } from 'react'
+import Image from 'next/image'
 
 function Nav() {
     const [menuVisible, setMenuVisible] = useState(false);
@@ -11,11 +12,12 @@ function Nav() {
     };
     return (
         <header>
-            <nav className='fixed top-0 left-0 w-full flex bg-cyan-700 text-oliva-900 justify-between items-center' >
+            <nav className='fixed top-0 left-0 w-full flex bg-cyan-600 text-oliva-900 justify-between items-center bg-opacity-30' >
                 <div className='flex items-center justify-center'>
-                    <Logo className='animate-color-change'/>
-                    <h1 className="text-4xl font-bold animate-color-change">NefroCentro</h1>
-                    
+                    <Image src='/logoNefro1.png' width={250} height={250}
+                        alt='logo'
+                        priority
+                    />
                 </div>
                 <div className='hidden lg:block lg:h-20'>
                     <Navigation />

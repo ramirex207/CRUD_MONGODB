@@ -1,6 +1,6 @@
 function Contact() {
   return (
-    <div className="p-8">
+    <div className="p-8 mt-20">
       <div className="max-w-7xl mx-auto">
         {/* Fila 1 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">

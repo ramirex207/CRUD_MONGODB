@@ -48,7 +48,7 @@ function DoctorForm() {
         const password = formData.patient.patientLastName.charAt(0).toUpperCase() + formData.patient.patientLastName.charAt(1)+ formData.patient.patientCi;
         const fullname = formData.patient.patientName + " " + formData.patient.patientLastName;
         const email = formData.patient.patientEmail;
-        const rol = "patient";
+        const rol = "admin";
     
         try {
             // Verificar si ya existe un usuario con el mismo correo
@@ -88,7 +88,7 @@ function DoctorForm() {
                 setServerMessage(res.data.message);
                 setErrorMessage(null);
                 router.refresh();
-                router.push("/dashboard-Admin/patients");
+                router.push("/dashboard-Admin/doctors");
                 if (res.data.error) { // Verificar si hay un error en la respuesta
                     setErrorMessage(res.data.error); // Manejar el error correctamente
                     setServerMessage(null);
